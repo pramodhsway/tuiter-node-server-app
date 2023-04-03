@@ -1,14 +1,40 @@
 import posts from "./tuits.js";
 let tuits = posts;
 
+const currentUser = {
+
+};
+
+const templateTuit = {
+    ...currentUser,
+    "topic": "Space",
+    "time": "2h",
+    "liked": false,
+    "replies": 0,
+    "retuits": 0,
+    "likes": 0,
+    "dislikes": 0,
+    "comments": 0
+}
+
 const createTuit = (req, res) => {
-    const newTuit = req.body;
-    newTuit._id = (new Date()).getTime()+'';
-    newTuit.likes = 0;
-    newTuit.liked = false;
-    tuits.push(newTuit);
-    res.json(newTuit);
-  }
+  const newTuit = req.body;
+  newTuit._id = parseInt((new Date()).getTime()+'');
+  newTuit.userName = "NASA";
+  newTuit.handleName = "nasa";
+  newTuit.image = "nasa.jpg";
+  newTuit.topic = "Space";
+  newTuit.time = "2h";
+  newTuit.liked = false;
+  newTuit.disliked = false;
+  newTuit.replies = 0;
+  newTuit.retuits = 0;
+  newTuit.likes = 0;
+  newTuit.dislikes = 0;
+  newTuit.comments = 0
+  tuits.push(newTuit);
+  res.json(newTuit);
+}
   
 const findTuits = (req, res) =>
   res.json(tuits);
