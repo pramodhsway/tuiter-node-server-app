@@ -23,7 +23,7 @@ const createTuit = async(req, res) => {
   const newTuit = req.body;
   newTuit._id = parseInt((new Date()).getTime()+'');
   newTuit.userName = "NASA";
-  newTuit.handleName = "nasa";
+  newTuit.handleName = "@nasa";
   newTuit.image = "nasa.jpg";
   newTuit.topic = "Space";
   newTuit.time = "2h";
